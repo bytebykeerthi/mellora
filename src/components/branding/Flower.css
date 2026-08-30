@@ -1,0 +1,45 @@
+.mellora-flower {
+  filter: drop-shadow(0 0 8px rgba(244, 194, 194, 0.3));
+}
+
+.flower-sm {
+  width: 40px;
+  height: 40px;
+}
+
+.flower-md {
+  width: 80px;
+  height: 80px;
+}
+
+.flower-lg {
+  width: 120px;
+  height: 120px;
+}
+
+.flower-xl {
+  width: 200px;
+  height: 200px;
+}
+
+/* Slow rotation animation */
+.mellora-flower {
+  animation: flowerRotate 12s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes flowerRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  .mellora-flower {
+    animation: none;
+  }
+}

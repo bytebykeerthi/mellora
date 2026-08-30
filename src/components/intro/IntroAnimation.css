@@ -1,0 +1,197 @@
+.intro-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.intro-animation.skip-triggered {
+  pointer-events: none;
+}
+
+.intro-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary-muted) 50%,
+    var(--color-primary-dark) 100%
+  );
+  z-index: -1;
+}
+
+.intro-gradient {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(200, 213, 204, 0.05) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 70% 50%,
+    rgba(244, 194, 194, 0.05) 0%,
+    transparent 50%
+  );
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 20px);
+  }
+}
+
+.intro-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(244, 194, 194, 0.08) 0%,
+    transparent 70%
+  );
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Produce Container */
+.intro-produce-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.produce-item {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 20%;
+  transform: translateX(-50%);
+}
+
+/* Logo Container */
+.intro-logo-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Flower Container */
+.intro-flower-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-flower-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Transition Overlay */
+.intro-transition-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary-dark);
+  z-index: 3;
+}
+
+/* Skip Button */
+.intro-skip-button {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 10000;
+  padding: 8px 16px;
+  border: 1px solid rgba(244, 194, 194, 0.3);
+  background: rgba(29, 31, 29, 0.6);
+  color: var(--color-pastel-pink);
+  border-radius: var(--radius-lg);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.intro-skip-button:hover {
+  background: rgba(29, 31, 29, 0.8);
+  border-color: var(--color-pastel-pink);
+  opacity: 1;
+}
+
+.intro-skip-button:active {
+  transform: scale(0.95);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .produce-item {
+    bottom: 15%;
+  }
+  
+  .intro-skip-button {
+    top: 16px;
+    right: 16px;
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+  
+  .intro-glow {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+/* Reduce Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .intro-gradient,
+  .intro-glow,
+  .produce-item {
+    animation: none !important;
+  }
+  
+  .produce-item {
+    transition: none !important;
+  }
+}

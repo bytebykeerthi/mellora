@@ -1,0 +1,104 @@
+.mellora-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.logo-sm .mellora-logo-svg {
+  width: 32px;
+  height: 32px;
+}
+
+.logo-md .mellora-logo-svg {
+  width: 64px;
+  height: 64px;
+}
+
+.logo-lg .mellora-logo-svg {
+  width: 128px;
+  height: 128px;
+}
+
+.logo-xl .mellora-logo-svg {
+  width: 200px;
+  height: 200px;
+}
+
+.mellora-logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mellora-logo-text h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0;
+  color: var(--color-cream);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.mellora-logo-text p {
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin: 0;
+  color: var(--color-pastel-pink);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Animation for animated variant */
+.mellora-logo-container.animated {
+  animation: logoAppear 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes logoAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) blur(0);
+  }
+}
+
+/* Slow rotation for flower */
+.mellora-logo-container .flower {
+  animation: slowRotate 8s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes slowRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .mellora-logo-container {
+    gap: 12px;
+  }
+  
+  .logo-md .mellora-logo-svg {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .mellora-logo-text h1 {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+  
+  .mellora-logo-text p {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+}
